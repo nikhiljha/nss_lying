@@ -1,0 +1,23 @@
+[package]
+name = "nss_lying"
+version = "0.1.0"
+authors = ["Ethan Wu <hello@ethanwu.dev>"]
+description = "NSS module for synthesizing fake users"
+edition = "2021"
+license = "GPL-3.0-only"
+
+[lib]
+name = "nss_lying"
+crate-type = ["cdylib", "lib"]
+
+[profile.release]
+lto = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.82"
+lazy_static = "1.4.0" # required by libnss macros
+libc = "0.2.153"
+libnss = "0.7.0"
+paste = "1.0.14" # required by libnss macros
